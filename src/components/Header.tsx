@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="py-0 px-0 flex justify-between items-center">
+    <header className="py-0 px-0 flex justify-between items-center ">
       <div className="flex flex-auto ">
         <Image
           src="/Images/Logo.avif"
@@ -14,9 +14,9 @@ const Header = () => {
       </div>
 
       <div className="flex justify-end gap-4 items-center">
-        <span className="h-12"></span>
-        <div className="flex space-x-4">
-          <a
+        <span className="h-12 "></span>
+        <div className="flex space-x-4 z-10">
+          <Link
             href="https://twitter.com/10derSea"
             target="_blank"
             rel="noopener noreferrer"
@@ -27,8 +27,9 @@ const Header = () => {
               width={16}
               height={16}
             />
-          </a>
-          <a
+          </Link>
+         
+          <Link
             href="https://www.instagram.com/sea10____/"
             target="_blank"
             rel="noopener noreferrer"
@@ -39,7 +40,7 @@ const Header = () => {
               width={16}
               height={16}
             />
-          </a>
+          </Link>
         </div>
       </div>
     </header>
