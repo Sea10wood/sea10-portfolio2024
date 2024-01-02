@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Sea10Logo from "@/components/Sea10Logo";
 import Speach from "@/components/Speach";
@@ -18,10 +19,9 @@ export default function Home() {
             <Sea10Logo />
           </div>
         </div>
-        <div className="z-3 relative">
+        <Footer />
+
         <Contributions />
-      </div>
-       
       </main>
 
       <div className="bubble"></div>

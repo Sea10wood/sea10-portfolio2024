@@ -42,17 +42,18 @@ export const Contributions = () => {
 
   return (
     <Box
-      maxWidth="100vw"
-      height="100vh"
+      maxWidth="50vw"
       bgcolor="translation"
       p={{ xs: "18px", md: "24px" }}
       borderRadius={{ xs: "12px", md: "18px" }}
       mx="auto"
-      overflow="scrollX"
+      overflow="hidden"
       position="absolute"
-      top="10%"
+      top="20vw"
+      zIndex={0}
     >
-      <Grid container columns={{ xs: 27, sm: 27, md: 27 }} spacing={2}>
+
+      <Grid container columns={{ xs: 27, sm: 27, md: 27 }} spacing={2} zIndex={0}>
         {myContributes &&
           myContributes.values.map((count: number, index: number) => (
             <Grid item key={index}>
@@ -62,6 +63,7 @@ export const Contributions = () => {
                 bgcolor="#39D353"
                 borderRadius="4px"
                 style={{ opacity: parseFloat(createOpacity(count) || "") }}
+                zIndex={0}
               />
             </Grid>
           ))}
