@@ -1,23 +1,34 @@
-
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
-
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import Sea10Logo from "@/components/Sea10Logo";
+import Speach from "@/components/Speach";
+import { Contributions } from "@/components/organisms/Contributions";
+import { Box, Typography } from "@mui/material";
 export default function Home() {
   return (
-    <main
-      className={`flex flex-col items-center font-bold justify-between p-24 min-w-screen min-h-screen relative overflow-hidden bg-gradient-to-b from-cyan-500 from-10% via-sky-500 via-30% to-sky-900 to-90% `}
-    >
-      <div className="bubbles">
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-      </div>
-      
-      <p>Hello world</p>
-      
-    </main>
+    <>
+      <main
+        className={` font-bold justify-between px-6 min-w-screen max-h-screen relative overflow-hidden bg-gradient-to-b from-cyan-500 from-10% via-sky-500 via-30% to-sky-900 to-90%`}
+      >
+        <div className="z-10">
+          <Header />
+
+          <Speach />
+
+          <div style={{ width: "100vw", height: "100vh" }}>
+            <Sea10Logo />
+          </div>
+        </div>
+        <Footer />
+
+        <Contributions />
+      </main>
+
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+      <div className="bubble"></div>
+    </>
   );
 }
