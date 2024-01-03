@@ -1,9 +1,11 @@
 .fuwa {
   animation: fuwa 2s infinite ease-in-out;
+  overflow: hidden;
 }
 
 @keyframes fuwa {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

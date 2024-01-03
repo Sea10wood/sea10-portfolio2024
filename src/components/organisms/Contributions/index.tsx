@@ -4,25 +4,17 @@ import { MyContributes } from "@/pages/api/contributions/[userName]";
 import { useState, useEffect } from "react";
 
 export const Contributions = () => {
-  // 取得したコミット数の配列データを管理するステート
   const [myContributes, setMyContributes] = useState<MyContributes>();
 
-  // カスタムフックを代入
   const { getContributions } = useContributions();
 
-  // 描画時に一度、カスタムフックにユーザー名を渡しデータを取得、それをステートにセットする
   useEffect(() => {
     (async () => {
       const data = await getContributions("Sea10wood");
       setMyContributes(data);
     })();
-  }, [getContributions]);
+  }, []);
 
-  /**
-   * GitHubの草の色を決める関数
-   * @param count APIで取得したコミット数
-   * @returns opacityのCSS
-   */
   const createOpacity = (count: number) => {
     let opacity;
     count === 0
