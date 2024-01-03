@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
       <style jsx>{`
-        @media #landscapeImage (min-width: 500px) {
+        @media #landscapeImage (max-width: 500px) {
           display: none;
         }
 
