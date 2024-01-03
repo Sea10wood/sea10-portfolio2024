@@ -6,6 +6,7 @@ import { Contributions } from "@/components/organisms/Contributions";
 import Image from "next/image";
 import Rotate from "../../public/Images/rotate.png";
 import { useEffect } from "react";
+
 export default function Home() {
   useEffect(() => {
     const handleOrientationChange = () => {
@@ -38,6 +39,11 @@ export default function Home() {
             display: none;
           }
         }
+        @media screen and (max-width: 600px) {
+          #main {
+            display: none;
+          }
+        }
       `}</style>
       <main
         className={` font-bold justify-between px-6 min-w-screen max-h-screen relative overflow-hidden bg-gradient-to-b from-cyan-500 from-10% via-sky-500 via-30% to-sky-900 to-90%`}
@@ -50,23 +56,21 @@ export default function Home() {
           >
             <Image src={Rotate} alt="Rotate_suggest_Image" layout="fill" />
           </div>
-          <div className="z-10">
+          <div className="z-0" id="main">
             <Header />
             <Speach />
+            <Footer />
+
+            <Sea10Logo />
+            {/* <Contributions /> */}
           </div>
-          <Footer />
-
-          {/* <Contributions /> */}
-
-          <Sea10Logo />
         </div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
       </main>
-
-      <div className="bubble"></div>
-      <div className="bubble"></div>
-      <div className="bubble"></div>
-      <div className="bubble"></div>
-      <div className="bubble"></div>
     </>
   );
 }

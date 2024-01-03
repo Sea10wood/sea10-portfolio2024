@@ -1,50 +1,54 @@
-
- 
 .bubble {
-position: absolute;
-bottom: -40;
-width: 40px;
-height: 40px;
-background-color: transparent;
-border: 1px solid #fff;
-border-radius: 50%;
-animation: bubble 10s ease-in infinite;
-z-index: 100;
+  position: absolute;
+  bottom: -40;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  animation: bubble 10s ease-in infinite;
+  z-index: 100;
+  overflow: hidden;
 }
- 
+
 .bubble:nth-child(1) {
-width: 20px;
-height: 20px;
-left: 30%;
-animation-duration: 6s;
+  width: 20px;
+  height: 20px;
+  left: 30%;
+  animation-duration: 6s;
+  overflow: hidden;
 }
- 
+
 .bubble:nth-child(2) {
-left: 20%;
-animation-duration: 3.5s;
+  left: 20%;
+  animation-duration: 3.5s;
+  overflow: hidden;
 }
- 
+
 .bubble:nth-child(3) {
-width: 30px;
-height: 30px;
-left: 30%;
-animation-duration: 7s;
+  width: 30px;
+  height: 30px;
+  left: 30%;
+  animation-duration: 7s;
+  overflow: hidden;
 }
- 
+
 .bubble:nth-child(4) {
-width: 50px;
-height: 50px;
-left: 67%;
-animation-duration: 6s;
+  width: 50px;
+  height: 50px;
+  left: 67%;
+  animation-duration: 6s;
+  overflow: hidden;
 }
- 
+
 .bubble:nth-child(5) {
-width: 20px;
-height: 20px;
-left: 70%;
-animation-duration: 4.5s;
+  width: 20px;
+  height: 20px;
+  left: 70%;
+  animation-duration: 4.5s;
+  overflow: hidden;
 }
- 
+
 @keyframes bubble {
   0% {
     bottom: -100px;

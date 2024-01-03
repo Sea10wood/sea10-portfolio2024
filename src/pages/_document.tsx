@@ -13,8 +13,8 @@ export default function Document() {
         <NextScript />
         <style>{`
           #__next {
-            height: 100;
-            width: 100;
+            height: 100vw;
+            width: 100vw;
           }
         `}</style>
       </body>
