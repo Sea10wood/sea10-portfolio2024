@@ -19,12 +19,10 @@ export default function Home() {
       }
     };
 
-    // Attach the event listener
     window.addEventListener("load", handleOrientationChange);
     window.addEventListener("orientationchange", handleOrientationChange);
     window.addEventListener("resize", handleOrientationChange);
 
-    // Clean up the event listener when the component is unmounted
     return () => {
       window.removeEventListener("load", handleOrientationChange);
       window.removeEventListener("orientationchange", handleOrientationChange);
@@ -34,24 +32,24 @@ export default function Home() {
   return (
     <>
       <style jsx>{`
-        @media screen and (min-width: 600px) {
-          #landscapeImage {
-            display: none;
-          }
+        #landscapeImage {
+          display: block;
         }
-        @media screen and (max-width: 600px) {
+
+        @media screen and (max-width: 500px) {
           #main {
             display: none;
           }
         }
       `}</style>
+
       <main
         className={` font-bold justify-between px-6 min-w-screen max-h-screen relative overflow-hidden bg-gradient-to-b from-cyan-500 from-10% via-sky-500 via-30% to-sky-900 to-90%`}
       >
         <div style={{ width: "100vw", height: "100vh" }}>
           <div
             id="landscapeImage"
-            style={{ display: "none", width: "100vw", height: "auto" }}
+            style={{ display: "block", width: "100vw", height: "auto" }}
             className="z-20 fix"
           >
             <Image src={Rotate} alt="Rotate_suggest_Image" layout="fill" />
