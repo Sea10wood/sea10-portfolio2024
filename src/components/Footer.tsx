@@ -41,6 +41,7 @@ const Footer = () => {
           }}
         />
       </Link>
+
       <Link
         href="https://twitter.com/10derSea"
         target="_blank"

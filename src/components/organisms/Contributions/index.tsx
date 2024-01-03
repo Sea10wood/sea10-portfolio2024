@@ -40,6 +40,7 @@ export const Contributions = () => {
     return opacity;
   };
 
+
   return (
     <Box
       maxWidth="50vw"
