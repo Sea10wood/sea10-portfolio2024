@@ -62,7 +62,7 @@ export default function Home() {
             <Footer />
 
             <Sea10Logo />
-            {/* <Contributions /> */}
+            <Contributions />
           </div>
         </div>
         <div className="bubble"></div>

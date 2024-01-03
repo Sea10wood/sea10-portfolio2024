@@ -1,12 +1,12 @@
 import { MyContributes } from "@/pages/api/contributions/[userName]";
 
 export const useContributions = () => {
-  const cache: { [key: string]: MyContributes } = {};
+  let cachedData: MyContributes | null = null;
 
   const getContributions = async (userName: string) => {
     try {
-      if (cache[userName]) {
-        return cache[userName];
+      if (cachedData) {
+        return cachedData;
       }
 
       const response = await fetch(`../api/contributions/${userName}`);
@@ -16,8 +16,7 @@ export const useContributions = () => {
       }
 
       const data: MyContributes = await response.json();
-
-      cache[userName] = data;
+      cachedData = data;
 
       return data;
     } catch (error) {

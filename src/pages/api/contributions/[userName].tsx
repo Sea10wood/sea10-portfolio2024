@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Octokit } from "@octokit/core";
 import dayjs from "dayjs";
 
-// レスポンスの型
 export type Contributions = {
   user: {
     contributionsCollection: {
@@ -22,28 +21,28 @@ export type Contributions = {
   };
 };
 
-// 最終的に描画時に利用するデータの型
+
 export type MyContributes = {
   values: number[];
 };
 
-// メインとなる関数
+
 export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  // リクエストのクエリをuserNameに代入
+  
   const { userName } = request.query;
 
- // インスタンスを作成し、認証情報として環境変数に定義したGitHubトークンを渡す
+ 
   const octokit = new Octokit({
     auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN,
   });
 
-  // 現在の年月日と時刻を取得
+ 
   const now = await dayjs().format("YYYY-MM-DDThh:mm:ss");
   
-  // 6ヶ月前の年月日と時刻を取得
+
   const sixMonthBefore = await dayjs()
     .subtract(8, "month")
     .format("YYYY-MM-DDThh:mm:ss");
@@ -78,10 +77,9 @@ export default async function handler(
     sixMonthBefore,
   });
 
-  // レスポンスからコミット数だけを抜き出し格納するための配列を定義
+ 
   let contributionCount: number[] = [];
-
-  // ループさせコミット数のみを配列にpushする       
+     
   contributions.user.contributionsCollection.contributionCalendar.weeks.forEach(
     (week: { contributionDays: any[]; }) => {
       week.contributionDays.forEach((contributionDay: { contributionCount: number; }) => {
@@ -90,7 +88,6 @@ export default async function handler(
     }
   );
 
-  // コミット数のみ格納された配列を返却
   return response.status(200).json({
     values: contributionCount,
   });
