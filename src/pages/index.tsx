@@ -32,8 +32,8 @@ export default function Home() {
   return (
     <>
       <style jsx>{`
-        #landscapeImage {
-          display: block;
+        @media #landscapeImage (min-width: 500px) {
+          display: none;
         }
 
         @media screen and (max-width: 500px) {
@@ -49,7 +49,7 @@ export default function Home() {
         <div style={{ width: "100vw", height: "100vh" }}>
           <div
             id="landscapeImage"
-            style={{ display: "block", width: "100vw", height: "auto" }}
+            style={{ display: "none", width: "100vw", height: "auto" }}
             className="z-20 fix"
           >
             <Image src={Rotate} alt="Rotate_suggest_Image" layout="fill" />
