@@ -21,27 +21,21 @@ export type Contributions = {
   };
 };
 
-
 export type MyContributes = {
   values: number[];
 };
-
 
 export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  
   const { userName } = request.query;
 
- 
   const octokit = new Octokit({
-    auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN,
+    auth: process.env.GITHUB_TOKEN,
   });
 
- 
   const now = await dayjs().format("YYYY-MM-DDThh:mm:ss");
-  
 
   const sixMonthBefore = await dayjs()
     .subtract(8, "month")
@@ -77,14 +71,16 @@ export default async function handler(
     sixMonthBefore,
   });
 
- 
+  // レスポンスからコミット数だけを抜き出し格納するための配列を定義
   let contributionCount: number[] = [];
-     
+
   contributions.user.contributionsCollection.contributionCalendar.weeks.forEach(
-    (week: { contributionDays: any[]; }) => {
-      week.contributionDays.forEach((contributionDay: { contributionCount: number; }) => {
-        contributionCount.push(contributionDay.contributionCount);
-      });
+    (week: { contributionDays: any[] }) => {
+      week.contributionDays.forEach(
+        (contributionDay: { contributionCount: number }) => {
+          contributionCount.push(contributionDay.contributionCount);
+        }
+      );
     }
   );
 
