@@ -12,10 +12,8 @@ export default function Home() {
       const landscapeImage = document.getElementById("landscapeImage");
 
       if (Math.abs(window.orientation) === 90) {
-    
         if (landscapeImage) landscapeImage.style.display = "none";
       } else {
-       
         if (landscapeImage) landscapeImage.style.display = "block";
       }
     };
@@ -34,28 +32,34 @@ export default function Home() {
   }, []);
   return (
     <>
+      <style jsx>{`
+        @media screen and (min-width: 600px) {
+          #landscapeImage {
+            display: none;
+          }
+        }
+      `}</style>
       <main
         className={` font-bold justify-between px-6 min-w-screen max-h-screen relative overflow-hidden bg-gradient-to-b from-cyan-500 from-10% via-sky-500 via-30% to-sky-900 to-90%`}
       >
-        <div
-          id="landscapeImage"
-          style={{ display: "none", width: "100vw", height: "auto" }}
-          className="z-20 fix"
-        >
-          <Image src={Rotate} alt="Rotate_suggest_Image" layout="fill" />
-        </div>
-        <div className="z-10">
-          <Header />
-
-          <Speach />
-
-          <div style={{ width: "100vw", height: "100vh" }}>
-            <Sea10Logo />
+        <div style={{ width: "100vw", height: "100vh" }}>
+          <div
+            id="landscapeImage"
+            style={{ display: "none", width: "100vw", height: "auto" }}
+            className="z-20 fix"
+          >
+            <Image src={Rotate} alt="Rotate_suggest_Image" layout="fill" />
           </div>
-        </div>
-        <Footer />
+          <div className="z-10">
+            <Header />
+            <Speach />
+          </div>
+          <Footer />
 
-        {/* <Contributions /> */}
+          {/* <Contributions /> */}
+
+          <Sea10Logo />
+        </div>
       </main>
 
       <div className="bubble"></div>
